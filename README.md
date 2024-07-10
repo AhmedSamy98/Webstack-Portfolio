@@ -1,26 +1,74 @@
-# Note Website
+# Webstack-Portfolio
 
-A simple note-taking website built with Node.js, Express.js, and MongoDB.
+## Introduction
 
-## Table of Contents
-
-- [Features](#features)
-- [Technologies](#technologies)
-## Features
-
-- User registration and authentication
-- Create, read, update, and delete notes
-- Responsive design
-
-## Technologies
+Webstack-Portfolio is a web application designed to manage user authentication and note-taking. It utilizes the following technologies:
 
 - **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
-- **Express.js**: Web framework for Node.js.
+- **Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
 - **MongoDB**: NoSQL database for storing user and note data.
-- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js.
+- **Mongoose**: Elegant MongoDB object modeling for Node.js.
+- **JWT**: JSON Web Token for secure authentication.
 - **bcryptjs**: Library for hashing passwords.
-- **jsonwebtoken**: Library for generating and verifying JSON Web Tokens (JWT).
-- **body-parser**: Middleware to parse incoming request bodies.
-- **cookie-parser**: Middleware to parse cookies.
-- **EJS**: Template engine for rendering HTML pages.
 
+## Project Structure
+
+```plaintext
+Webstack-Portfolio/
+│
+├── app.js
+├── package.json
+├── package-lock.json
+├── config/
+│   └── db.js
+├── models/
+│   └── User.js
+│   └── Note.js
+├── routes/
+│   └── auth.js
+│   └── notes.js
+├── middleware/
+│   └── auth.js
+├── controllers/
+│   └── authController.js
+│   └── noteController.js
+```
+
+
+
+## File and Folder Descriptions
+
+### app.js
+The main entry point of the application. It sets up the Express server, connects to the MongoDB database, defines middleware, and routes.
+
+### package.json and package-lock.json
+- **package.json**: Contains metadata about the project and its dependencies.
+- **package-lock.json**: Describes the exact version of each dependency installed.
+
+## config/db.js
+Contains the logic for connecting to the MongoDB database using Mongoose.
+
+## models/User.js
+Defines the User schema and model. Handles password hashing using bcryptjs.
+
+## models/Note.js
+Defines the Note schema and model.
+
+## routes/auth.js
+Defines routes for user registration and login.
+
+## routes/notes.js
+Defines routes for creating, retrieving, and updating notes. Uses the auth middleware to ensure only authenticated users can access these routes.
+
+## middleware/auth.js
+Middleware for verifying JWT tokens and protecting routes.
+
+## controllers/authController.js
+Handles user registration and login.
+
+## controllers/noteController.js
+Handles note operations such as creating, retrieving, and updating notes.
+
+
+## Conclusion
+This project provides a basic setup for a note-taking application with user authentication. It demonstrates how to structure a Node.js project with Express, MongoDB, and Mongoose, and how to implement authentication using JWT.
